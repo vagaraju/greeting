@@ -1,0 +1,29 @@
+{
+  "GatewayResponse": {
+    "ProcessorResponse": "000AP",
+    "CardBrand": "MasterCard",
+    "OrderID": "sale",
+    "TrackingID": "XCharge.Transactions",
+    "LocalDate": "113017",
+    "TransactionID": "000000001913",
+    "BatchNum": "000010",
+    "AVSResponseCode": "N",
+    "ReceiptID": "1913",
+    "Language": "ENGLISH",
+    "ExpDate": "1224",
+    "BatchAmount": "1778.38",
+    "CardType": "Credit",
+    "ResponseDescription": "Approval",
+    "InvoiceNumber": "91827364",
+    "ResponseCode": "000",
+    "MaskedAcctNum": "545454XXXXXX5454",
+    "EntryMethod": "Keyed",
+    "LocalTime": "161916",
+    "Amount": "236.65",
+    "ApprovalCode": "ME3665",
+    "CardBrandShort": "MC",
+    "CardCodeResponse": "M",
+    "DeviceEncrypted": "False",
+    "TerminalID": "91827364"
+  }
+}

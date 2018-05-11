@@ -1,0 +1,86 @@
+{
+  "GatewayResponse": {
+    "ProcessorResponse": "000AP",
+    "CardBrand": "MasterCard",
+    "OrderID": "sale",
+    "TrackingID": "XCharge.Transactions",
+    "LocalDate": "113017",
+    "TransactionID": "000000001913",
+    "BatchNum": "000010",
+    "AVSResponseCode": "N",
+    "ReceiptID": "1913",
+    "Language": "ENGLISH",
+    "ExpDate": "1224",
+    "BatchAmount": "1778.38",
+    "CardType": "Credit",
+    "ResponseDescription": "Approval",
+    "InvoiceNumber": "12345",
+    "ResponseCode": "000",
+    "MaskedAcctNum": "545454XXXXXX5454",
+    "ReceiptXml": {
+      "CardNumber": {
+        "label": "Card Number",
+        "content": "XXXXXXXXXXXX5454"
+      },
+      "TransactionType": {
+        "label": "Trans Type",
+        "content": "Purchase"
+      },
+      "LineItems": "Test Line",
+      "MerchantAddress": "Test Address",
+      "EntryMethod": {
+        "label": "Entry Method",
+        "content": "MANUAL"
+      },
+      "MerchantPolicy": "Test Policy",
+      "TransactionDateTime": {
+        "label": "Date/Time",
+        "content": "2017-11-30 16:19:16"
+      },
+      "MerchantID": {
+        "label": "Terminal ID",
+        "content": "XXXX460"
+      },
+      "TotalAmount": {
+        "label": "Total Amount",
+        "content": "USD$236.65"
+      },
+      "OrderID": {
+        "label": "Order ID",
+        "content": "trghu"
+      },
+      "Verbiage": "Approved - Thank You",
+      "MerchantFooter": "Test Footers",
+      "ApprovalCode": {
+        "label": "Approval Code",
+        "content": "ME3665"
+      },
+      "TransactionID": {
+        "label": "Trans ID",
+        "content": "000000001913"
+      },
+      "MerchantHeader": "Test Company",
+      "MerchantPhone": "1234567890",
+      "CardType": {
+        "label": "Card Type",
+        "content": "MasterCard"
+      },
+      "SignatureLine": "X____________________________________",
+      "SignatureText": "Cardholder Signature",
+      "AuthorizationAgreement": "Buyer agrees to pay total amount above according to cardholder's agreement with issuer.",
+      "ReceiptNumber": {
+        "label": "Receipt #",
+        "content": "12345"
+      }
+    },
+    "Receipt": "Test Company\n\n              Test Address\n               1234567890\n\nTerminal ID         XXXX460\nTrans ID            000000001913\nOrder ID            trghu\nReceipt #           12345\nTrans Type          Purchase\nDate/Time           2017-11-30 16:19:16\nCard Type           MasterCard\nCard Number         XXXXXXXXXXXX5454\nEntry Method        MANUAL\nApproval Code       ME3665\n\nTotal Amount        USD$236.65\n\nTest Line\n\n          Approved - Thank You\n\n X____________________________________\n          Cardholder Signature\n\nBuyer agrees to pay total amount above\naccording to cardholder's agreement with\nissuer.\n\n              Test Policy\n\n              Test Footers",
+    "EntryMethod": "Keyed",
+    "LocalTime": "161916",
+    "Amount": "236.65",
+    "ApprovalCode": "ME3665",
+    "CardBrandShort": "MC",
+    "CardCodeResponse": "M",
+    "DeviceEncrypted": "False",
+    "TerminalID": "12345"
+  }
+}

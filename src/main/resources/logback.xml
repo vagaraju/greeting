@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="DEV_HOME" value="@logging.file@" />
+	<appender name="FILE-AUDIT"	class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${DEV_HOME}/ws-applications.log</file>	
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				<!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level - %msg%n -->
+				{"timestamp": "%d{yyyy-MM-dd HH:mm:ss.SSS}","loglevel": "%-5p", "thread": "%t","loggerName": "%c.%M:%L","ws_sessionId":"%X{session_id}", "reqId":"%X{reqId}","logMessage": "%m"}%n
+			</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${DEV_HOME}/archived/debug.%d{yyyy-MM-dd}.%i.log
+                        </fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="jsMsg">
+				<expression>message.contains("outgoingResp") ||
+					message.contains("incomingReq") || message.contains("execType")
+				</expression>
+			</evaluator>
+			<OnMatch>DENY</OnMatch>
+		</filter>
+
+	</appender>
+
+	<appender name="MessageExecutionTime"	class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${DEV_HOME}/ws-stats.log</file>	
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				{"timestamp": "%d{yyyy-MM-dd HH:mm:ss.SSS}","loglevel": "%-5p", "thread": "%t" ,"loggerName": "%c.%M:%L" ,"ws_sessionId":"%X{session_id}", "reqId":"%X{reqId}", "type":"%X{type}", "logMessage": %m}%n			
+			</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${DEV_HOME}/archived/messages.%d{yyyy-MM-dd}.%i.log
+                        </fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+			<evaluator name="jsMsg">
+				<expression>message.contains("outgoingResp") ||
+					message.contains("incomingReq") || message.contains("execType")
+				</expression>
+			</evaluator>
+			<OnMatch>ACCEPT</OnMatch>
+			<OnMismatch>DENY</OnMismatch>
+		</filter>
+	</appender>
+	
+	<logger name="com.openedgepay" level="debug"
+		additivity="false">
+		<appender-ref ref="FILE-AUDIT" />
+		<appender-ref ref="MessageExecutionTime" />
+	</logger>
+
+	<root level="error">
+		<appender-ref ref="FILE-AUDIT" />
+		<appender-ref ref="MessageExecutionTime" />
+	</root>
+
+</configuration>
